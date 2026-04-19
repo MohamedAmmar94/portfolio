@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Ammar | Senior Laravel Developer</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF2D20;
+            /* Laravel Red */
+            --dark-bg: #0b0f1a;
+            --card-bg: #161b2c;
+            --text-muted: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Glassmorphism */
+        .navbar {
+            background: rgba(11, 15, 26, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 45, 32, 0.05) 0%, transparent 50%);
+        }
+
+        .btn-laravel {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-laravel:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 45, 32, 0.3);
+            color: white;
+        }
+
+        .btn-outline-white {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Section Headlines */
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50%;
+            height: 4px;
+            background: var(--primary);
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            border-radius: 10px;
+        }
+
+        /* Why Work With Me Section */
+        .feature-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        .feature-box:hover {
+            background: rgba(255, 45, 32, 0.02);
+            border-color: rgba(255, 45, 32, 0.2);
+            transform: scale(1.02);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 45, 32, 0.1);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Technical Expertise Tags */
+        .skill-group {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+        }
+
+        .skill-badge {
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin: 5px;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .skill-badge:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(255, 45, 32, 0.05);
+        }
+
+        /* Timeline Experience */
+        .timeline {
+            border-left: 2px solid rgba(255, 255, 255, 0.05);
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .project-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: linear-gradient(145deg, #161b2c, #0b0f1a);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-box {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#">MOHAMED REDA AMMAR<span
+                    style="color:var(--primary)">.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="#why-me">Why Me?</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-laravel btn-sm text-white" href="docs/cv.pdf" target="_blank">
+                            <i class="fas fa-file-download me-2"></i>View CV
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7" data-aos="fade-up">
+                    <h6 class="text-uppercase tracking-widest mb-3" style="color: var(--primary); letter-spacing: 2px;">
+                        Senior Laravel Developer</h6>
+                    <h1 class="display-3 fw-bold mb-4">Building Scalable Backend Systems</h1>
+                    <p class="lead text-secondary mb-5 fs-5">Senior Developer specializing in Laravel, High-performance
+                        APIs, and Real-time architectures since 2018.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#projects" class="btn btn-laravel">Explore My Work</a>
+                        <a href="docs/cv.pdf" target="_blank" class="btn btn-outline-white">Get My CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work With Me Section -->
+    <section id="why-me" class="py-5 bg-black bg-opacity-10">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Why Work With Me?</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                        <h5>High Performance</h5>
+                        <p class="text-secondary small">Experience handling +50K daily requests with optimized API
+                            performance and indexing.</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-code"></i></div>
+                        <h5>Clean Architecture</h5>
+                        <p class="text-secondary small">Writing maintainable, scalable, and well-structured code
+                            following SOLID principles.</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h5>Robust Security</h5>
+                        <p class="text-secondary small">Implementing secure payment gateways, authentication systems,
+                            and data protection.</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+                        <h5>Modern Tech</h5>
+                        <p class="text-secondary small">Expertise in Real-time systems, AI integrations, and DevOps
+                            automation (Docker/CI/CD).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Expertise -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Technical Arsenal</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="skill-group">
+                        <h5 class="mb-4"><i class="fas fa-server me-2 text-primary"></i> Backend Mastery</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge">PHP</span>
+                            <span class="skill-badge">Laravel</span>
+                            <span class="skill-badge">RESTful APIs</span>
+                            <span class="skill-badge">MySQL Design</span>
+                            <span class="skill-badge">Microservices</span>
+                            <span class="skill-badge">Redis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="skill-group">
+                        <h5 class="mb-4"><i class="fas fa-bolt me-2 text-primary"></i> Real-time & Cloud</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge">Pusher</span>
+                            <span class="skill-badge">Laravel Reverb</span>
+                            <span class="skill-badge">Socket.io</span>
+                            <span class="skill-badge">Firebase</span>
+                            <span class="skill-badge">Docker</span>
+                            <span class="skill-badge">Server Management</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="skill-group">
+                        <h5 class="mb-4"><i class="fas fa-laptop-code me-2 text-primary"></i> Integrations</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge">AI Tools</span>
+                            <span class="skill-badge">Payment Gateways</span>
+                            <span class="skill-badge">App Purchases</span>
+                            <span class="skill-badge">Third-party SDKs and APIs</span>
+                            <span class="skill-badge">FrontEnd Basics</span>
+                            <!-- <span class="skill-badge">JavaScript / AJAX</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5 bg-black bg-opacity-10">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Work Journey</h2>
+            <div class="timeline mt-5">
+                <div class="timeline-item" data-aos="fade-up">
+                    <h4 class="fw-bold">Senior PHP Laravel Backend Developer</h4>
+                    <p class="text-primary mb-2">Jathwa | 2021 - Present</p>
+                    <p class="text-secondary">Handling 5+ high-traffic production apps. Architecting database systems
+                        for massive data flow and payment security.</p>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <h4 class="fw-bold">Laravel Backend Developer</h4>
+                    <p class="text-primary mb-2">Safwa Soft | 2020 - 2021</p>
+                    <p class="text-secondary">Developing Triple (S) e-commerce solutions and employee management
+                        modules.</p>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <h4 class="fw-bold">Laravel Backend Developer</h4>
+                    <p class="text-primary mb-2">Plant Company | 2018 - 2020</p>
+                    <p class="text-secondary">Developing School Management Systems modules.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Major Projects</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-brain"></i></div>
+                        <h4>Tawar Nafsak</h4>
+                        <p class="text-secondary small">Health app integrating daily goals, tips, and reward point
+                            systems for users.</p>
+                        <a href="http://tawernafsak.net/" target="_blank"
+                            class="text-primary text-decoration-none fw-bold">Explore <i
+                                class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-car-side"></i></div>
+                        <h4>Clean Reflection</h4>
+                        <p class="text-secondary small">On-demand service with real-time driver tracking and automated
+                            scheduling.</p>
+                        <a href="https://clean-reflection.com/" target="_blank"
+                            class="text-primary text-decoration-none fw-bold">Explore <i
+                                class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-store"></i></div>
+                        <h4>TripDone</h4>
+                        <p class="text-secondary small">Tourism and booking applications.</p>
+                        <a href="https://be.thetripdone.com/check_platform" target="_blank"
+                            class="text-primary text-decoration-none fw-bold">Explore <i
+                                class="fas fa-passport"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h4>MartMap</h4>
+                        <p class="text-secondary small">Multi-vendor Marketplace SaaS with automated inventory and
+                            vendor dashboards.</p>
+                        <a href="https://sss.sa.com/ar" target="_blank"
+                            class="text-primary text-decoration-none fw-bold">Explore <i
+                                class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="far fa-futbol"></i></div>
+                        <h4> koora today</h4>
+                        <p class="text-secondary small"> Mobile app providing live match scores using SportMonks API,
+                            displaying match details, planning, and sending push notifications for preferred teams,
+                            match start/end, and result updates.</p>
+                        <!-- <a href="https://sss.sa.com/ar" target="_blank"
+                            class="text-primary text-decoration-none fw-bold">Explore <i
+                                class="fas fa-arrow-right ms-1"></i></a> -->
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-server"></i></div>
+                        <h4> Cloudsa</h4>
+                        <p class="text-secondary small"> Website for domain services in Saudi Arabia, similar to
+                            GoDaddy, integrated with NIC for domain registration and management.</p>
+                        <!-- <a href="https://sss.sa.com/ar" target="_blank"
+                            class="text-primary text-decoration-none fw-bold">Explore <i
+                                class="fas fa-arrow-right ms-1"></i></a> -->
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-video"></i></div>
+                        <h4>Yoga</h4>
+                        <p class="text-secondary small"> Application providing online yoga courses and products, with
+                            scheduling via Zoom SDK between coaches and clients</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-newspaper"></i></div>
+                        <h4>Sard</h4>
+                        <p class="text-secondary small"> News application aggregating content from Twitter and RSS
+                            feeds, allowing users to follow global events and categories. Handled large volumes of data.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-utensils"></i></div>
+                        <h4>Dook</h4>
+                        <p class="text-secondary small"> Mobile app for restaurant management, allowing clients to
+                            register reservations and owners to track bookings and table availability
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Get In Touch -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="contact-box" data-aos="zoom-in">
+                <h2 class="fw-bold mb-4">Let's Discuss Your Next Project</h2>
+                <p class="text-secondary mb-5 fs-5">Ready to build your next scalable SaaS or backend solution?</p>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-5">
+                        <div class="p-3 border border-secondary border-opacity-25 rounded-3">
+                            <i class="fas fa-envelope text-primary mb-2 fs-4"></i>
+                            <p class="mb-0">mohamed3mmar94@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="p-3 border border-secondary border-opacity-25 rounded-3">
+                            <i class="fas fa-phone text-primary mb-2 fs-4"></i>
+                            <p class="mb-0">+201155033932</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 d-flex justify-content-center gap-4">
+                    <a href="https://linkedin.com/in/mohamed-ammar-428066130" target="_blank" class="text-white fs-2"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/MohamedAmmar94" target="_blank" class="text-white fs-2"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center text-secondary border-top border-secondary border-opacity-10">
+        <small>© 2024 Mohamed Ammar. Senior Laravel Developer.</small>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+
+</html>
