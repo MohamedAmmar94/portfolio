@@ -156,6 +156,58 @@
             background: rgba(255, 45, 32, 0.05);
         }
 
+        /* Skill Cards */
+        .skill-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary);
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            margin: 4px;
+            display: inline-block;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .project-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 45, 32, 0.1);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
         /* Timeline Experience */
         .timeline {
             border-left: 2px solid rgba(255, 255, 255, 0.05);
@@ -201,6 +253,24 @@
             margin-bottom: 20px;
         }
 
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .project-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 45, 32, 0.1);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
         /* Contact Section */
         .contact-box {
             background: linear-gradient(145deg, #161b2c, #0b0f1a);
@@ -234,9 +304,10 @@
             </button>
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link px-3" href="#why-me">Why Me?</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#why-me">About</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
                     <li class="nav-item ms-lg-3">
                         <a class="btn btn-laravel btn-sm text-white" href="docs/cv.pdf" target="_blank">
                             <i class="fas fa-file-download me-2"></i>View CV
@@ -252,8 +323,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7" data-aos="fade-up">
-                    <h6 class="text-uppercase tracking-widest mb-3" style="color: var(--primary); letter-spacing: 2px;">
-                        Senior Laravel Developer</h6>
+                    <span class="badge bg-danger mb-3 py-2 px-3">Senior Laravel Developer</span>
+
                     <h1 class="display-3 fw-bold mb-4">Building Scalable Backend Systems</h1>
                     <p class="lead text-secondary mb-5 fs-5">Senior Developer specializing in Laravel, High-performance
                         APIs, and Real-time architectures since 2018.</p>
@@ -267,7 +338,37 @@
     </section>
 
     <!-- Why Work With Me Section -->
-    <section id="why-me" class="py-5 bg-black bg-opacity-10">
+    <section id="why-me" class="py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="section-title">Who is Mohamed Ammar?</h2>
+                    <p class="fs-5 text-secondary">I am a Senior Laravel Developer with experience since 2018. I have
+                        worked with multiple companies,
+                        delivering scalable and high-performance web applications.</p>
+                    <p class="text-secondary">I am passionate about building scalable SaaS platforms, optimizing
+                        performance, and delivering clean, maintainable code. I also have experience working with
+                        AI-powered tools and integrating AI features into modern applications.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="skill-card">
+                        <h5 class="mb-4 text-primary">Core Philosophy</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Clean Code & SOLID
+                                Principles</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Scalable Database
+                                Design</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Performance First
+                                Approach</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> End-to-End Problem
+                                Solving</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section id="why-me" class="py-5 bg-black bg-opacity-10">
         <div class="container">
             <h2 class="section-title" data-aos="fade-right">Why Work With Me?</h2>
             <div class="row g-4 mt-2">
@@ -305,10 +406,86 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Technical Expertise -->
-    <section id="skills" class="py-5">
+    <section id="skills" class="py-5 bg-black bg-opacity-20">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Core Expertise</h2>
+            <div class="row g-4 mt-2">
+                <!-- Backend -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="skill-card">
+                        <i class="fas fa-server mb-3 fs-3 text-primary"></i>
+                        <h6>Backend & API</h6>
+                        <div class="mt-3">
+                            <span class="skill-tag">PHP</span> <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">RESTful APIs</span> <span class="skill-tag">Sanctum/Passport</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Database -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="skill-card">
+                        <i class="fas fa-database mb-3 fs-3 text-primary"></i>
+                        <h6>Database Design</h6>
+                        <div class="mt-3">
+                            <span class="skill-tag">MySQL Optimization</span> <span class="skill-tag">Indexing</span>
+                            <span class="skill-tag">Schema Design</span> <span class="skill-tag">Performance
+                                Tuning</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Real Time -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="skill-card">
+                        <i class="fas fa-bolt mb-3 fs-3 text-primary"></i>
+                        <h6>Real-Time Systems</h6>
+                        <div class="mt-3">
+                            <span class="skill-tag">Firebase</span> <span class="skill-tag">Pusher</span>
+                            <span class="skill-tag">Laravel Reverb</span> <span class="skill-tag">Socket.io</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Payments -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="skill-card">
+                        <i class="fas fa-credit-card mb-3 fs-3 text-primary"></i>
+                        <h6>Payments & Integrations</h6>
+                        <div class="mt-3">
+                            <span class="skill-tag">Payment Gateways</span> <span class="skill-tag">In-app
+                                Purchases</span>
+                            <span class="skill-tag">Third-party APIs</span> <span class="skill-tag">AI
+                                Integrations</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- DevOps -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="skill-card">
+                        <i class="fas fa-cloud mb-3 fs-3 text-primary"></i>
+                        <h6>DevOps & Server</h6>
+                        <div class="mt-3">
+                            <span class="skill-tag">Docker</span> <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Server Management</span> <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Frontend -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="skill-card">
+                        <i class="fas fa-code mb-3 fs-3 text-primary"></i>
+                        <h6>Frontend</h6>
+                        <div class="mt-3">
+                            <span class="skill-tag">JavaScript</span> <span class="skill-tag">jQuery</span>
+                            <span class="skill-tag">AJAX</span> <span class="skill-tag">Bootstrap 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section id="skills" class="py-5">
         <div class="container">
             <h2 class="section-title" data-aos="fade-right">Technical Arsenal</h2>
             <div class="row g-4 mt-2">
@@ -323,7 +500,6 @@
                             <span class="skill-badge">Microservices</span>
                             <span class="skill-badge">Design patterns</span>
                             <span class="skill-badge">Clean Code</span>
-                            <!-- <span class="skill-badge">Redis</span> -->
                         </div>
                     </div>
                 </div>
@@ -349,13 +525,12 @@
                             <span class="skill-badge">App Purchases</span>
                             <span class="skill-badge">Third-party SDKs and APIs</span>
                             <span class="skill-badge">FrontEnd Basics</span>
-                            <!-- <span class="skill-badge">JavaScript / AJAX</span> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Experience Section -->
     <section id="experience" class="py-5 bg-black bg-opacity-10">
@@ -365,7 +540,7 @@
                 <div class="timeline-item" data-aos="fade-up">
                     <h4 class="fw-bold">Senior PHP Laravel Backend Developer</h4>
                     <p class="text-primary mb-2">Jathwa | 2021 - Present</p>
-                    <p class="text-secondary">Handling 5+ high-traffic production apps. Architecting database systems
+                    <p class="text-secondary">Handling 3+ high-traffic production apps. Architecting database systems
                         for massive data flow and payment security.</p>
                 </div>
                 <div class="timeline-item" data-aos="fade-up">
@@ -401,7 +576,7 @@
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-car-side"></i></div>
+                        <div class="project-icon"><i class="fas fa-car"></i></div>
                         <h4>Clean Reflection</h4>
                         <p class="text-secondary small">On-demand service with real-time driver tracking and automated
                             scheduling.</p>
@@ -423,7 +598,7 @@
                 </div>
                 <div class="col-md-4" data-aos="fade-up">
                     <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="project-icon"><i class="fas fa-shopping-bag"></i></div>
                         <h4>MartMap</h4>
                         <p class="text-secondary small">Multi-vendor Marketplace SaaS with automated inventory and
                             vendor dashboards.</p>
@@ -447,7 +622,7 @@
                 </div>
                 <div class="col-md-4" data-aos="fade-up">
                     <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-server"></i></div>
+                        <div class="project-icon"><i class="fas fa-globe"></i></div>
                         <h4> Cloudsa</h4>
                         <p class="text-secondary small"> Website for domain services in Saudi Arabia, similar to
                             GoDaddy, integrated with NIC for domain registration and management.</p>
@@ -459,6 +634,7 @@
                 <div class="col-md-4" data-aos="fade-up">
                     <div class="project-card">
                         <div class="project-icon"><i class="fas fa-video"></i></div>
+
                         <h4>Yoga</h4>
                         <p class="text-secondary small"> Application providing online yoga courses and products, with
                             scheduling via Zoom SDK between coaches and clients</p>
@@ -480,6 +656,30 @@
                         <p class="text-secondary small"> Mobile app for restaurant management, allowing clients to
                             register reservations and owners to track bookings and table availability
                         </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-home"></i></div>
+                        <h5>House Hub (Real Estate)</h5>
+                        <p class="text-secondary small">E-commerce platform dedicated to real estate property management
+                            and sales.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-school"></i></div>
+                        <h5>School Management</h5>
+                        <p class="text-secondary small">Complex ERP system for schools (Alsson School) managing students
+                            and staff.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card border-primary">
+                        <div class="project-icon"><i class="fas fa-robot"></i></div>
+                        <h5>AI-Powered Integrations</h5>
+                        <p class="text-secondary small">Specialized experience in integrating AI features into various
+                            SaaS platforms.</p>
                     </div>
                 </div>
 
