@@ -731,6 +731,145 @@
     <script>
         AOS.init({ duration: 1000, once: true });
     </script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics-compat.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDSmPaU8m8LcAqnlAyAvLCHKW2bbGW-ohk",
+            authDomain: "myportfolio-cdec0.firebaseapp.com",
+            databaseURL: "https://myportfolio-cdec0-default-rtdb.firebaseio.com",
+            projectId: "myportfolio-cdec0",
+            storageBucket: "myportfolio-cdec0.firebasestorage.app",
+            messagingSenderId: "235603354385",
+            appId: "1:235603354385:web:24545a7c5f5794b45662b0",
+            measurementId: "G-04FVG55HZG"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.database();
+
+        function increaseVisitor() {
+            const visited = sessionStorage.getItem("visited");
+
+            if (!visited) {
+                const ref = db.ref("visitors/count");
+
+                ref.transaction(current => {
+                    return (current || 0) + 1;
+                });
+
+                sessionStorage.setItem("visited", "true");
+            }
+        }
+        increaseVisitor();
+    </script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDSmPaU8m8LcAqnlAyAvLCHKW2bbGW-ohk",
+            authDomain: "myportfolio-cdec0.firebaseapp.com",
+            databaseURL: "https://myportfolio-cdec0-default-rtdb.firebaseio.com",
+            projectId: "myportfolio-cdec0",
+            storageBucket: "myportfolio-cdec0.firebasestorage.app",
+            messagingSenderId: "235603354385",
+            appId: "1:235603354385:web:24545a7c5f5794b45662b0",
+            measurementId: "G-04FVG55HZG"
+        };
+
+        // init
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        const db = firebase.database();
+
+        // منع التكرار
+        function increaseVisitor() {
+            const key = "visited_" + new Date().toDateString();
+
+            if (!localStorage.getItem(key)) {
+                db.ref("visitors/count").transaction(c => (c || 0) + 1);
+                localStorage.setItem(key, "1");
+            }
+        }
+
+        increaseVisitor();
+
+        // (اختياري) عرض العدد
+        db.ref("visitors/count").on("value", (snap) => {
+            console.log("Visitors:", snap.val());
+        });
+    </script> -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDSmPaU8m8LcAqnlAyAvLCHKW2bbGW-ohk",
+            authDomain: "myportfolio-cdec0.firebaseapp.com",
+            databaseURL: "https://myportfolio-cdec0-default-rtdb.firebaseio.com",
+            projectId: "myportfolio-cdec0",
+            storageBucket: "myportfolio-cdec0.firebasestorage.app",
+            messagingSenderId: "235603354385",
+            appId: "1:235603354385:web:24545a7c5f5794b45662b0",
+            measurementId: "G-04FVG55HZG"
+        };
+
+        // init
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        const db = firebase.database();
+
+        /* ==============================
+           LEVEL 3 UNIQUE VISITOR LOGIC
+        ================================= */
+
+        // 1. create / get unique user id
+        function getUserId() {
+            let uid = localStorage.getItem("uid");
+
+            if (!uid) {
+                uid = crypto.randomUUID(); // unique per browser
+                localStorage.setItem("uid", uid);
+            }
+
+            return uid;
+        }
+
+        const userId = getUserId();
+
+        // 2. user reference in DB
+        const userRef = db.ref("visitors/users/" + userId);
+
+        // 3. check if first time visit
+        userRef.once("value").then((snap) => {
+            if (!snap.exists()) {
+
+                // mark user as visited
+                userRef.set({
+                    firstVisit: Date.now()
+                });
+
+                // increase TOTAL visitors only once per user
+                db.ref("visitors/total").transaction((count) => {
+                    return (count || 0) + 1;
+                });
+            }
+        });
+
+        // 4. show counter (optional)
+        db.ref("visitors/total").on("value", (snap) => {
+            console.log("Visitors:", snap.val());
+        });
+    </script>
 </body>
 
 </html>
