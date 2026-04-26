@@ -784,18 +784,23 @@
                 //     firstVisit: Date.now()
                 // });
                 const location = await getVisitorLocation();
-
+                const country = location.country || "Unknown";
+                const city = location.city || "Unknown";
                 // خزّن المستخدم + الموقع
                 userRef.set({
                     firstVisit: Date.now(),
-                    country: location.country,
-                    city: location.city
+                    country: country,
+                    city: city
                 });
 
                 // increase TOTAL visitors only once per user
                 db.ref("visitors/total").transaction((count) => {
                     return (count || 0) + 1;
                 });
+                db.ref(`visitors/locations/${country}/${city}`)
+                    .transaction((count) => {
+                        return (count || 0) + 1;
+                    });
             }
         });
 
