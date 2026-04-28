@@ -856,15 +856,13 @@
         }
         function getReferrerSource() {
             const ref = document.referrer;
-
             if (!ref) return "Direct";
-
-            if (ref.includes("linkedin.com")) return "LinkedIn";
-            if (ref.includes("google.")) return "Google";
-            if (ref.includes("facebook.com")) return "Facebook";
-            if (ref.includes("twitter.com")) return "Twitter";
-
-            return "Other";
+            try {
+                const url = new URL(ref);
+                return url.hostname; // زي linkedin.com
+            } catch {
+                return "Other";
+            }
         }
     </script>
 </body>
