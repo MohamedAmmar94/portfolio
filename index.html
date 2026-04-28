@@ -810,7 +810,7 @@
                 // خزّن المستخدم + الموقع
                 const device = /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop";
                 const browser = navigator.userAgent;
-                const referrer = document.referrer || "Direct";
+                const referrer = getReferrerSource();
                 userRef.set({
                     firstVisit: new Date().toLocaleString(),
                     country: country,
