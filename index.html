@@ -828,6 +828,8 @@
                     .transaction((count) => {
                         return (count || 0) + 1;
                     });
+                db.ref("visitors/referrers/" + referrer)
+                    .transaction(c => (c || 0) + 1);
             }
         });
 
@@ -851,6 +853,18 @@
                     city: null
                 };
             }
+        }
+        function getReferrerSource() {
+            const ref = document.referrer;
+
+            if (!ref) return "Direct";
+
+            if (ref.includes("linkedin.com")) return "LinkedIn";
+            if (ref.includes("google.")) return "Google";
+            if (ref.includes("facebook.com")) return "Facebook";
+            if (ref.includes("twitter.com")) return "Twitter";
+
+            return "Other";
         }
     </script>
 </body>
