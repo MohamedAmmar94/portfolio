@@ -804,19 +804,20 @@
         // 3. check if first time visit
         userRef.once("value").then(async (snap) => {
             if (!snap.exists()) {
-
-                // mark user as visited
-                // userRef.set({
-                //     firstVisit: Date.now()
-                // });
                 const location = await getVisitorLocation();
                 const country = location.country || "Unknown";
                 const city = location.city || "Unknown";
                 // خزّن المستخدم + الموقع
+                const device = /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop";
+                const browser = navigator.userAgent;
+                const referrer = document.referrer || "Direct";
                 userRef.set({
-                    firstVisit: Date.now(),
+                    firstVisit: new Date().toLocaleString(),
                     country: country,
-                    city: city
+                    city: city,
+                    device: device,
+                    browser: browser,
+                    referrer: referrer
                 });
 
                 // increase TOTAL visitors only once per user
