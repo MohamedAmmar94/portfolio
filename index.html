@@ -13,6 +13,7 @@
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Mohamed Ammar | Laravel Developer">
     <meta property="og:description" content="Building scalable backend systems and APIs.">
+
     <meta property="og:image" content="https://mohamedammar94.github.io/portfolio/preview.jpg">
     <meta property="og:url" content="https://mohamedammar94.github.io/portfolio">
     <meta property="og:type" content="website">
@@ -857,6 +858,15 @@
                     });
                 db.ref("visitors/referrers/" + referrer)
                     .transaction(c => (c || 0) + 1);
+                const payload = {
+                    country,
+                    city,
+                    referrer,
+                    device,
+                    user_agent: navigator.userAgent,
+                    timestamp: new Date().toISOString()
+                };
+                sendVisitorToAPI(payload);
             }
         });
 
@@ -890,6 +900,18 @@
             } catch {
                 return "Other";
             }
+        }
+        function sendVisitorToAPI(payload) {
+            fetch("https://tawerbe.com/api/v1/sent_vistor_email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(res => res.json())
+                .then(data => console.log("API Success:", data))
+                .catch(err => console.error("API Error:", err));
         }
     </script>
 </body>
